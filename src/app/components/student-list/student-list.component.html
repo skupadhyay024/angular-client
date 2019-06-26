@@ -1,4 +1,4 @@
-<h1>Customer List
+<h1>Students List
   <button class="btn btn-success btn-circle pull-right"
           (click) = 'add()'
           title="Add Customer">
@@ -26,15 +26,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let cust of customers | search: searchText"
-            [ngClass]="{'btn-primary': cust.id == currentId }">
-            <td>{{cust.id}}</td>
-            <td>{{cust.name}}</td>
-            <td>{{cust.address}}</td>
-            <td>{{cust.phoneNumber}}</td>
+        <tr *ngFor="let student of students | search: searchText"
+            [ngClass]="{'btn-primary': student.id == currentId }" [routerLink] ="['/student', student.id]">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.phoneNumber}}</td>
             <td style="width: 70px;">
-                <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="edit(cust.id)" title="Edit"></i>
-                <i class="fa fa-trash" aria-hidden="true" (click)="delete(cust.id)"  title="Delete"></i>
+                <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="edit(student.id)" title="Edit"></i>
+                <i class="fa fa-trash" aria-hidden="true" (click)="delete(student.id)"  title="Delete"></i>
                 <i class="glyphicon glyphicon-user pointer" title="Image"></i>
             </td>
         </tr>
